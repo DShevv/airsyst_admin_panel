@@ -17,15 +17,22 @@ export const Wrapper = styled.div`
   @media screen and (max-width: 1169px) {
     width: auto;
     max-width: 970px;
-    margin: auto 27px;
+    margin: auto;
+    padding: 0 10px;
     margin-top: 60px;
     margin-bottom: 100px;
   }
 
-  @media screen and (max-width: 470px) {
+  @media screen and (max-width: 680px) {
     width: auto;
-    margin: 0;
+    margin: 0 10px;
+    padding: 0;
     margin-top: 27px;
     margin-bottom: 50px;
+  }
+
+  @media screen and (max-width: 680px) {
+    display: flex;
+    justify-content: center;
   }
 `;

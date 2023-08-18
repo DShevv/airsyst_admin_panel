@@ -31,4 +31,12 @@ export const StyledSubmit = styled.input`
     background: #1245a9;
     box-shadow: none;
   }
+
+  @media screen and (max-width: 1169px) {
+    width: 300px;
+  }
+
+  @media screen and (max-width: 680px) {
+    width: 100%;
+  }
 `;

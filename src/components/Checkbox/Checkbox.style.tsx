@@ -51,4 +51,10 @@ export const StyledCheckbox = styled.div`
     margin-right: 5px;
     z-index: 1;
   }
+
+  @media screen and (max-width: 1169px) {
+    label {
+      font-size: 14px;
+    }
+  }
 `;

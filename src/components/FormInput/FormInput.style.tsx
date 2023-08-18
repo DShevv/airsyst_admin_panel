@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledInput = styled.input`
-  width: 370px;
+  max-width: 370px;
+  width: 100%;
   height: 40px;
   padding: 10px 17px 10px 17px;
   border-radius: 3px;
@@ -26,5 +27,16 @@ export const StyledInput = styled.input`
   &[type="number"]::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
+  }
+
+  @media screen and (max-width: 1169px) {
+    max-width: 300px;
+    min-width: 215px;
+    padding: 10px 14px;
+    flex: 1 1 auto;
+  }
+
+  @media screen and (max-width: 680px) {
+    max-width: 100%;
   }
 `;
