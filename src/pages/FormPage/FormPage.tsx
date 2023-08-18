@@ -20,8 +20,13 @@ export default function FormPage() {
     };
   };
 
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(data);
+  };
+
   return (
-    <Form>
+    <Form onSubmit={onSubmit}>
       <Title>Введите контактные данные</Title>
       <Hint>
         {" "}
@@ -85,16 +90,19 @@ export default function FormPage() {
             type="text"
             placeholder="Физический адрес*"
             name="address"
+            required
             onChange={createOnChange("fAddress")}
           />
         ) : undefined}
       </Row>
       <Row>
         <FormInput
-          type="text"
+          type="number"
           placeholder="ИНН*"
           name="INN"
           required
+          minLength={12}
+          maxLength={12}
           onChange={createOnChange("INN")}
         />
       </Row>

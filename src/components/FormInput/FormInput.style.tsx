@@ -18,4 +18,13 @@ export const StyledInput = styled.input`
   ::placeholder {
     color: ${(props) => props.theme.colors.textGrayLight};
   }
+
+  &[type="number"] {
+    appearance: textfield;
+  }
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
 `;

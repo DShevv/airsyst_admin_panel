@@ -9,6 +9,8 @@ interface Props {
   value?: string;
   required?: boolean;
   name?: string;
+  minLength?: number;
+  maxLength?: number;
   onChange: (value: string | boolean) => void;
 }
 
@@ -20,6 +22,8 @@ export default function FormInput({
   value,
   required,
   name,
+  minLength,
+  maxLength,
   onChange,
 }: Props) {
   return (
@@ -30,6 +34,8 @@ export default function FormInput({
       value={value}
       required={required}
       name={name}
+      minLength={minLength}
+      maxLength={maxLength}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         onChange(e.target.value);
       }}
