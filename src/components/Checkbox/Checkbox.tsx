@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { ReactNode, useEffect, useState } from "react";
 import { StyledCheckbox } from "./Checkbox.style";
 
@@ -17,7 +16,7 @@ export default function Checkbox({ children, id, onChange }: Props) {
 
   useEffect(() => {
     onChange(checked);
-  }, [checked]);
+  }, [checked, onChange]);
 
   return (
     <StyledCheckbox>

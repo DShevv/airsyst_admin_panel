@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import FormInput from "../../components/FormInput/FormInput";
 import Hint from "../../components/Hint/Hint";
@@ -14,11 +14,16 @@ export default function FormPage() {
     console.log(data);
   }, [data]);
 
-  const createOnChange = (field: string) => {
-    return (value: string | boolean) => {
-      setData({ ...data, [field]: value });
-    };
+  const useCreateOnChange = (field: string) => {
+    return useCallback(
+      (value: string | boolean) => {
+        setData({ ...data, [field]: value });
+      },
+      [field]
+    );
   };
+
+  const fAddressOnChange = useCreateOnChange("fAddress");
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,23 +44,23 @@ export default function FormPage() {
           placeholder="Имя"
           name="firstName"
           required
-          onChange={createOnChange("name")}
+          onChange={useCreateOnChange("name")}
         />
         <FormInput
           type="tel"
           placeholder="Телефон"
           name="phone"
           required
-          onChange={createOnChange("phone")}
+          onChange={useCreateOnChange("phone")}
         />
         <FormInput
           type="email"
           placeholder="Email"
           required
-          onChange={createOnChange("email")}
+          onChange={useCreateOnChange("email")}
         />
       </Row>
-      <Checkbox id="agent" onChange={createOnChange("isAgent")}>
+      <Checkbox id="agent" onChange={useCreateOnChange("isAgent")}>
         Я представитель юридического лица или ИП
       </Checkbox>
       <Hint>
@@ -68,7 +73,7 @@ export default function FormPage() {
           placeholder="Название организации*"
           name="organization"
           required
-          onChange={createOnChange("organization")}
+          onChange={useCreateOnChange("organization")}
         />
         <Cell>
           <FormInput
@@ -76,11 +81,11 @@ export default function FormPage() {
             placeholder="Юридический адрес*"
             name="address"
             required
-            onChange={createOnChange("uAddress")}
+            onChange={useCreateOnChange("uAddress")}
           />
           <Checkbox
             id="isAddressEquals"
-            onChange={createOnChange("isAddressEquals")}
+            onChange={useCreateOnChange("isAddressEquals")}
           >
             Совпадает с физическим
           </Checkbox>
@@ -91,7 +96,7 @@ export default function FormPage() {
             placeholder="Физический адрес*"
             name="address"
             required
-            onChange={createOnChange("fAddress")}
+            onChange={fAddressOnChange}
           />
         ) : undefined}
       </Row>
@@ -103,7 +108,7 @@ export default function FormPage() {
           required
           minLength={12}
           maxLength={12}
-          onChange={createOnChange("INN")}
+          onChange={useCreateOnChange("INN")}
         />
       </Row>
 
