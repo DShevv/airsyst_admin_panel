@@ -1,7 +1,12 @@
+export interface Condition {
+  percentage: number;
+  point: number;
+}
+
 export interface Discount {
   name: string;
   percentage: number;
-  condition: number;
+  condition: Condition | undefined;
 
   labelColor: string;
   labelBackgroundColor: string;
