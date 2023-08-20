@@ -1,5 +1,5 @@
 import { User } from "../../types/types";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Container } from "./MainPage.style";
 import StatusBar from "../../components/StatusBar/StatusBar";
 
@@ -16,7 +16,7 @@ export default function MainPage({ user }: Props) {
   return (
     <Container>
       <StatusBar></StatusBar>
-      MainPage
+      <Outlet />
     </Container>
   );
 }
