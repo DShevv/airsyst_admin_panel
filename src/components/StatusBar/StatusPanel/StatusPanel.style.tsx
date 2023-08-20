@@ -23,6 +23,19 @@ export const StyledPanel = styled.div<SideProps>`
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
+
+  @media screen and (max-width: 1169px) {
+    max-width: 300px;
+    height: 58px;
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 680px) {
+    max-width: 340px;
+    height: 38px;
+    font-size: 15px;
+    width: 100%;
+  }
 `;
 
 export const StyledMiddlePanel = styled.div<MiddleProps>`
@@ -39,6 +52,17 @@ export const StyledMiddlePanel = styled.div<MiddleProps>`
   background-color: ${(props) => props.theme.colors.primary};
   overflow: hidden;
 
+  @media screen and (max-width: 1169px) {
+    max-width: 300px;
+    width: 100%;
+    height: 58px;
+  }
+
+  @media screen and (max-width: 680px) {
+    max-width: 340px;
+    height: 38px;
+  }
+
   &::before {
     position: absolute;
     content: "";
@@ -47,6 +71,14 @@ export const StyledMiddlePanel = styled.div<MiddleProps>`
     bottom: 0;
     background-color: ${(props) => props.theme.colors.primaryDark};
     z-index: 2;
+
+    @media screen and (max-width: 1169px) {
+      height: 3px;
+    }
+
+    @media screen and (max-width: 680px) {
+      height: 2px;
+    }
   }
   &::after {
     position: absolute;
@@ -57,16 +89,37 @@ export const StyledMiddlePanel = styled.div<MiddleProps>`
     bottom: 0;
     background-color: ${(props) => props.theme.colors.secondary};
     z-index: 3;
+
+    @media screen and (max-width: 1169px) {
+      height: 3px;
+    }
+
+    @media screen and (max-width: 680px) {
+      height: 2px;
+    }
   }
 `;
 
 export const MiddleText = styled.div`
   display: block;
+  text-align: center;
   font-family: "Rubik";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 130.5%;
+
+  @media screen and (max-width: 1169px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 720px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 10px;
+  }
 `;
 
 export const MiddlePercentage = styled.div`
@@ -76,7 +129,23 @@ export const MiddlePercentage = styled.div`
   font-style: normal;
   font-weight: 700;
 
+  @media screen and (max-width: 1169px) {
+    font-size: 22px;
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 18px;
+  }
+
   span {
     font-size: 18px;
+
+    @media screen and (max-width: 1169px) {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 680px) {
+      font-size: 12px;
+    }
   }
 `;

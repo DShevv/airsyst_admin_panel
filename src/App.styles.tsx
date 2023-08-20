@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
     max-width: 970px;
     margin: auto;
     padding: 0 10px;
-    margin-top: 60px;
+
     margin-bottom: 100px;
   }
 
