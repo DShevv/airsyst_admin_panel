@@ -5,6 +5,7 @@ const ThemeLight: DefaultTheme = {
 
   colors: {
     primary: "#F6F7FC",
+    primaryDark: "#E4E6EE",
     secondary: "#195CDF",
     secondaryLight: "#EFF4FF",
     secondaryDark: "#CBD5E9",

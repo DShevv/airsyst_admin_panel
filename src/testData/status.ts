@@ -1,18 +1,18 @@
 import StatusStore from "../stores/status-store";
 
-const statusSilver = new StatusStore();
+export const statusSilver = new StatusStore();
 
 statusSilver.setCurrent({
   name: "Silver",
   percentage: 5,
   condition: undefined,
-  labelColor: "#868686",
+  labelColor: "#000000",
   labelBackgroundColor: "#F6F7FC",
   backgroundColor: "#FFFFFF",
 });
 
 statusSilver.setNext({
-  name: "Gold",
+  name: "GOLD",
   percentage: 20,
   condition: { percentage: 60, point: 150000 },
   labelColor: "#868686",
@@ -20,7 +20,7 @@ statusSilver.setNext({
   backgroundColor: "#FFFFFF",
 });
 
-const statusGold = new StatusStore();
+export const statusGold = new StatusStore();
 
 statusGold.setCurrent({
   name: "Gold",
@@ -40,5 +40,3 @@ statusGold.setNext({
   labelBackgroundColor: "#181816",
   backgroundColor: "#FFFFFF",
 });
-
-export default { statusSilver, statusGold };

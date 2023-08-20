@@ -14,7 +14,7 @@ import { User, UserData } from "./types/types";
 import { Wrapper } from "./App.styles";
 
 const userStore = new UserStore();
-//userStore.setUser({ data: {} as UserData } as User);
+userStore.setUser({ data: {} as UserData } as User);
 
 const router = createBrowserRouter(
   createRoutesFromElements(
