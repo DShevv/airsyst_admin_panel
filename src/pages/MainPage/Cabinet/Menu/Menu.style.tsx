@@ -13,5 +13,6 @@ export const StyledMenu = styled.ul`
   @media screen and (max-width: 680px) {
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
   }
 `;

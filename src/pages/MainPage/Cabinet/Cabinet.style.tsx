@@ -15,4 +15,13 @@ export const CabinetContainer = styled.div`
   display: flex;
   width: 100%;
   gap: 18px;
+
+  @media screen and (max-width: 680px) {
+    flex-direction: column;
+  }
+`;
+
+export const CabinetContent = styled.div`
+  width: 100%;
+  height: fit-content;
 `;

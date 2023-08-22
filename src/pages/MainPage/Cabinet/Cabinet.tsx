@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { CabinetContainer, Title } from "./Cabinet.style";
+import { CabinetContainer, CabinetContent, Title } from "./Cabinet.style";
 import Menu from "./Menu/Menu";
 
 export default function Cabinet() {
@@ -8,7 +8,9 @@ export default function Cabinet() {
       <Title>Личный кабинет</Title>
       <CabinetContainer>
         <Menu />
-        <Outlet />
+        <CabinetContent>
+          <Outlet />
+        </CabinetContent>
       </CabinetContainer>
     </div>
   );

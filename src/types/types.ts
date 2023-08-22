@@ -43,3 +43,10 @@ export interface DataForm {
   fAddress: string | undefined;
   INN: string;
 }
+
+export interface IMessage {
+  image: string;
+  title: string;
+  text: string;
+  date: string;
+}
