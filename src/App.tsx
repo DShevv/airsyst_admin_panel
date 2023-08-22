@@ -5,6 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   createRoutesFromElements,
+  Navigate,
 } from "react-router-dom";
 import UserStore from "./stores/user-store";
 import { observer } from "mobx-react-lite";
@@ -15,6 +16,8 @@ import { RootWrapper, Wrapper } from "./App.styles";
 import Cabinet from "./pages/MainPage/Cabinet/Cabinet";
 import Messages from "./pages/MainPage/Cabinet/Messages/Messages";
 import { statusGold, statusSilver } from "./testData/status";
+import Store from "./pages/MainPage/Cabinet/Store/Store";
+import Price from "./pages/MainPage/Cabinet/Price/Price";
 
 const userStore = new UserStore();
 userStore.setUser({ data: {} as UserData } as User);
@@ -27,21 +30,24 @@ const router = createBrowserRouter(
           <Route path="/" element={<Cabinet />}>
             <Route index element={<>messages</>} />
             <Route path="messages" element={<Messages />} />
-            <Route path="store" element={<>store</>} />
+            <Route path="store" element={<Store />} />
             <Route path="documentation">
               <Route index element={<>index</>} />
               <Route path="doc1" element={<>doc1</>} />
               <Route path="doc2" element={<>doc2</>} />
             </Route>
             <Route path="brone" element={<>store</>} />
-            <Route path="price" element={<>store</>} />
+            <Route path="price" element={<Price />} />
             <Route path="my" element={<>my</>} />
             <Route path="account" element={<>account</>} />
             <Route path="history" element={<>history</>} />
           </Route>
         </Route>
       ) : (
-        <Route index element={<FormPage></FormPage>} />
+        <>
+          <Route path="/" element={<FormPage></FormPage>} />
+          <Route path="*" element={<Navigate to="/" />} />{" "}
+        </>
       )}
     </Route>
   )
