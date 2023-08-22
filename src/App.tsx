@@ -18,6 +18,8 @@ import Messages from "./pages/MainPage/Cabinet/Messages/Messages";
 import { statusGold, statusSilver } from "./testData/status";
 import Store from "./pages/MainPage/Cabinet/Store/Store";
 import Price from "./pages/MainPage/Cabinet/Price/Price";
+import Documentation from "./pages/MainPage/Cabinet/Documentation/Documentation";
+import DocFilesPage from "./pages/MainPage/Cabinet/Documentation/DocFilesPage/DocFilesPage";
 
 const userStore = new UserStore();
 userStore.setUser({ data: {} as UserData } as User);
@@ -32,9 +34,35 @@ const router = createBrowserRouter(
             <Route path="messages" element={<Messages />} />
             <Route path="store" element={<Store />} />
             <Route path="documentation">
-              <Route index element={<>index</>} />
-              <Route path="doc1" element={<>doc1</>} />
-              <Route path="doc2" element={<>doc2</>} />
+              <Route index element={<Documentation />} />
+              <Route
+                path="instructions"
+                element={
+                  <DocFilesPage
+                    itemsHref="/"
+                    title="Инструкции по эксплуатации"
+                  />
+                }
+              />
+              <Route
+                path="certificates"
+                element={<DocFilesPage itemsHref="/" title="Сертификаты" />}
+              />
+              <Route
+                path="techinfo"
+                element={
+                  <DocFilesPage itemsHref="/" title="Техническая информация" />
+                }
+              />
+              <Route
+                path="typedcomertial"
+                element={
+                  <DocFilesPage
+                    itemsHref="/"
+                    title="Образцы коммерческих предложений"
+                  />
+                }
+              />
             </Route>
             <Route path="brone" element={<>store</>} />
             <Route path="price" element={<Price />} />

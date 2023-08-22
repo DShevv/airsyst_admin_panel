@@ -8,6 +8,7 @@ export const StyledExcel = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: ${(props) => props.theme.colors.primary};
+  border-radius: ${(props) => props.theme.borderRadius};
 `;
 
 export const ExcelIcon = styled.img`

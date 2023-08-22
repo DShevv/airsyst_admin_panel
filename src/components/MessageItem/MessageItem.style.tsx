@@ -6,6 +6,8 @@ export const Message = styled(Link)`
   padding: 22px;
   gap: 22px;
   background-color: ${(props) => props.theme.colors.primary};
+  border-radius: ${(props) => props.theme.borderRadius};
+
   text-decoration: none;
   color: inherit;
 
