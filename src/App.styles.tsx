@@ -1,11 +1,22 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+interface Props {
+  bgcolor: string | undefined;
+}
+
+export const RootWrapper = styled.div<Props>`
+  width: 100%;
+  height: 100%;
+  background: ${(props) => props.bgcolor};
+`;
+
+export const Wrapper = styled.div<Props>`
   width: 1170px;
   margin: 0 auto;
+  padding-top: 47px;
+  padding-bottom: 100px;
 
-  margin-bottom: 142px;
-
+  background: ${(props) => props.bgcolor};
   color: ${(props) => props.theme.colors.text};
   font-variant-numeric: lining-nums proportional-nums;
   font-family: "Raleway";
@@ -19,8 +30,8 @@ export const Wrapper = styled.div`
     max-width: 970px;
     margin: auto;
     padding: 0 10px;
-
-    margin-bottom: 100px;
+    padding-top: 25px;
+    padding-bottom: 46px;
   }
 
   @media screen and (max-width: 680px) {
@@ -28,10 +39,8 @@ export const Wrapper = styled.div`
     margin: 0 10px;
     padding: 0;
     margin-top: 27px;
-    margin-bottom: 50px;
-  }
-
-  @media screen and (max-width: 680px) {
+    padding-bottom: 46px;
+    padding-top: 12px;
     display: flex;
     justify-content: center;
   }

@@ -11,9 +11,10 @@ import { observer } from "mobx-react-lite";
 import MainPage from "./pages/MainPage/MainPage";
 import FormPage from "./pages/FormPage/FormPage";
 import { User, UserData } from "./types/types";
-import { Wrapper } from "./App.styles";
+import { RootWrapper, Wrapper } from "./App.styles";
 import Cabinet from "./pages/MainPage/Cabinet/Cabinet";
 import Messages from "./pages/MainPage/Cabinet/Messages/Messages";
+import { statusGold, statusSilver } from "./testData/status";
 
 const userStore = new UserStore();
 userStore.setUser({ data: {} as UserData } as User);
@@ -47,12 +48,16 @@ const router = createBrowserRouter(
 );
 
 const App = observer(() => {
+  const { current } = statusSilver;
+
   return (
-    <ThemeProvider theme={ThemeLight}>
-      <Wrapper>
-        <RouterProvider router={router} />
-      </Wrapper>
-    </ThemeProvider>
+    <RootWrapper bgcolor={current?.backgroundColor}>
+      <ThemeProvider theme={ThemeLight}>
+        <Wrapper bgcolor={current?.backgroundColor}>
+          <RouterProvider router={router} />
+        </Wrapper>
+      </ThemeProvider>
+    </RootWrapper>
   );
 });
 
