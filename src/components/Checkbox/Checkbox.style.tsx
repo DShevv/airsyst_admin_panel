@@ -30,7 +30,6 @@ export const StyledCheckbox = styled.div`
   }
 
   label {
-    margin-bottom: 9px;
     display: inline-flex;
     position: relative;
     align-items: center;
@@ -40,6 +39,7 @@ export const StyledCheckbox = styled.div`
   }
 
   label::before {
+    background-color: white;
     content: "";
     display: inline-block;
     width: 18px;

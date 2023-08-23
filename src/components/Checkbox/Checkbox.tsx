@@ -2,13 +2,27 @@ import { ReactNode, useEffect, useState } from "react";
 import { StyledCheckbox } from "./Checkbox.style";
 
 interface Props {
-  children: ReactNode;
+  children?: ReactNode;
+  isChecked?: boolean;
   id: string;
   onChange: (value: string | boolean) => void;
 }
+interface SecondProps {
+  children?: ReactNode;
+  isChecked?: boolean;
+  id: string;
+  onChange: () => void;
+}
 
-export default function Checkbox({ children, id, onChange }: Props) {
-  const [checked, setChecked] = useState(false);
+export default function Checkbox({
+  children,
+  id,
+  isChecked,
+  onChange,
+}: Props | SecondProps) {
+  const [checked, setChecked] = useState(
+    isChecked !== undefined ? isChecked : false
+  );
 
   const changeHandler = () => {
     setChecked(!checked);
@@ -16,7 +30,7 @@ export default function Checkbox({ children, id, onChange }: Props) {
 
   useEffect(() => {
     onChange(checked);
-  }, [checked, onChange]);
+  }, [checked]);
 
   return (
     <StyledCheckbox>
@@ -24,7 +38,7 @@ export default function Checkbox({ children, id, onChange }: Props) {
         type="checkbox"
         name={id}
         id={id}
-        checked={checked}
+        checked={isChecked}
         onChange={changeHandler}
       />
       <label htmlFor={id}>{children}</label>

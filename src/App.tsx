@@ -20,6 +20,7 @@ import Store from "./pages/MainPage/Cabinet/Store/Store";
 import Price from "./pages/MainPage/Cabinet/Price/Price";
 import Documentation from "./pages/MainPage/Cabinet/Documentation/Documentation";
 import DocFilesPage from "./pages/MainPage/Cabinet/Documentation/DocFilesPage/DocFilesPage";
+import { OrderHistory } from "./pages/MainPage/Cabinet/OrederHistory/OrderHistory";
 
 const userStore = new UserStore();
 userStore.setUser({ data: {} as UserData } as User);
@@ -30,7 +31,7 @@ const router = createBrowserRouter(
       {userStore.user?.data ? (
         <Route path="/" element={<MainPage user={userStore.user}></MainPage>}>
           <Route path="/" element={<Cabinet />}>
-            <Route index element={<>messages</>} />
+            <Route index element={<Messages />} />
             <Route path="messages" element={<Messages />} />
             <Route path="store" element={<Store />} />
             <Route path="documentation">
@@ -67,8 +68,8 @@ const router = createBrowserRouter(
             <Route path="brone" element={<>store</>} />
             <Route path="price" element={<Price />} />
             <Route path="my" element={<>my</>} />
-            <Route path="account" element={<>account</>} />
-            <Route path="history" element={<>history</>} />
+            <Route path="account" element={<FormPage />} />
+            <Route path="history" element={<OrderHistory />} />
           </Route>
         </Route>
       ) : (

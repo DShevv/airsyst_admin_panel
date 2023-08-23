@@ -50,3 +50,14 @@ export interface IMessage {
   text: string;
   date: string;
 }
+
+export interface IProduct {
+  id: string;
+  name: string;
+  image: string;
+  count: number;
+  price: number;
+  oldPrice: number;
+  weight: number;
+  isSelected: boolean;
+}

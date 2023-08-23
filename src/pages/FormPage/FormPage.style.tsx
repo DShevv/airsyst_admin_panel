@@ -42,7 +42,6 @@ export const Cell = styled.div`
 `;
 
 export const Form = styled.form`
-  margin-top: 64px;
   display: flex;
   flex-direction: column;
 
