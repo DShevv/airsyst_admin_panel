@@ -15,6 +15,10 @@ export const StyledOrderList = styled.div`
 export const SelectMenu = styled.div`
   display: flex;
   gap: 36px;
+
+  @media screen and (max-width: 680px) {
+    font-size: 13px;
+  }
 `;
 
 export const HeaderRow = styled.div`
@@ -27,6 +31,10 @@ export const HeaderRow = styled.div`
 
   span {
     text-align: center;
+  }
+
+  @media screen and (max-width: 680px) {
+    display: none;
   }
 `;
 
@@ -44,6 +52,10 @@ export const SelectAll = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
+
+  @media screen and (max-width: 680px) {
+    font-size: 13px;
+  }
 `;
 
 export const RemoveSelected = styled.button`
@@ -59,6 +71,10 @@ export const RemoveSelected = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
+
+  @media screen and (max-width: 680px) {
+    font-size: 13px;
+  }
 `;
 
 export const DeleteIcon = styled.div`

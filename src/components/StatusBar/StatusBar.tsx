@@ -33,7 +33,7 @@ const StatusBar = observer(() => {
         percentage={next?.percentage}
       >
         {next?.name}
-        {`(скидка ${next?.percentage})`}
+        {`(скидка ${next?.percentage}%)`}
       </StatusPanel>
     </StyledBar>
   );

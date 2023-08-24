@@ -13,7 +13,7 @@ export const OrderHistory = observer(() => {
       {
         id: "1",
         image: "12321",
-        name: "test",
+        name: "ВОЗДУШНЫЙ ФИЛЬТР ECO AE-704-22 ВОЗДУШНЫЙ ФИЛЬТР ECO AE-704-22",
         count: 1,
         price: 120,
         oldPrice: 110,
@@ -23,7 +23,7 @@ export const OrderHistory = observer(() => {
       {
         id: "2",
         image: "12321",
-        name: "test",
+        name: "ВОЗДУШНЫЙ ФИЛЬТР ECO AE-704-22 ВОЗДУШНЫЙ ФИЛЬТР ECO AE-704-22",
         count: 2,
         price: 120,
         oldPrice: 110,
@@ -33,7 +33,7 @@ export const OrderHistory = observer(() => {
       {
         id: "3",
         image: "12321",
-        name: "test",
+        name: "ВОЗДУШНЫЙ ФИЛЬТР ECO AE-704-22 ВОЗДУШНЫЙ ФИЛЬТР ECO AE-704-22",
         count: 2,
         price: 120,
         oldPrice: 110,

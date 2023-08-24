@@ -3,6 +3,7 @@ import Checkbox from "../../../../../../components/Checkbox/Checkbox";
 import productStore from "../../../../../../stores/product-store";
 import { IProduct } from "../../../../../../types/types";
 import {
+  Break,
   DeleteButton,
   OrderImage,
   OrderOldPrice,
@@ -43,6 +44,7 @@ export const OrderItem = observer(({ item }: Props) => {
       />
       <OrderImage src={expired} />
       <OrderTitle>{item.name}</OrderTitle>
+      <Break />
       <OrderOldPrice>{item.oldPrice} BYN</OrderOldPrice>
       <Count
         key={item.toString()}

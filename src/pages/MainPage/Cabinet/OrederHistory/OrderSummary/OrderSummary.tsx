@@ -4,6 +4,7 @@ import {
   SummaryButton,
   SummaryContainer,
   SummaryLabel,
+  SummaryTitle,
 } from "./OrderSummary.style";
 
 export default function OrderSummary() {
@@ -15,14 +16,15 @@ export default function OrderSummary() {
 
   return (
     <SummaryContainer>
+      <SummaryTitle>ваш заказ</SummaryTitle>
       <SummaryLabel>
-        Выбрано товаров <span>{getCount(items)} шт.</span>
+        <span>Выбрано товаров:</span> <span>{getCount(items)} шт.</span>
       </SummaryLabel>
       <SummaryLabel>
-        Вес заказа <span>{getWeight(items)} кг.</span>
+        <span>Вес заказа:</span> <span>{getWeight(items)} кг.</span>
       </SummaryLabel>
       <SummaryLabel>
-        Выбрано товаров <span>{getCost(items)} BYN</span>
+        <span>Итого:</span> <span>{getCost(items)} BYN</span>
       </SummaryLabel>
       <SummaryButton>Выставить счёт</SummaryButton>
     </SummaryContainer>

@@ -23,6 +23,7 @@ export const StyledPanel = styled.div<SideProps>`
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
+  text-align: center;
 
   @media screen and (max-width: 1169px) {
     max-width: 300px;
@@ -47,6 +48,7 @@ export const StyledMiddlePanel = styled.div<MiddleProps>`
   justify-content: center;
   align-items: center;
   flex: 1 1 auto;
+
   border-radius: ${(props) => props.theme.borderRadius};
   color: ${(props) => props.theme.colors.text};
   background-color: ${(props) => props.theme.colors.primary};

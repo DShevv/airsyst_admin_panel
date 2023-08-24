@@ -1,14 +1,29 @@
 import { styled } from "styled-components";
 
 export const SummaryContainer = styled.div`
-  display: flex;
-
-  justify-content: space-between;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   padding: 10px 14px;
   align-items: center;
 
   border-radius: ${(props) => props.theme.borderRadius};
   background: ${(props) => props.theme.colors.primary};
+
+  @media screen and (max-width: 1169px) {
+    gap: 10px;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+
+  @media screen and (max-width: 680px) {
+    align-self: center;
+    width: 340px;
+    background: ${(props) => props.theme.colors.textWhite};
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const SummaryLabel = styled.div`
@@ -20,13 +35,36 @@ export const SummaryLabel = styled.div`
   font-weight: 400;
   line-height: 130.5%;
 
-  span {
+  span:nth-child(1) {
+    display: inline-block;
+    white-space: normal;
+  }
+
+  span:nth-child(2) {
     color: ${(props) => props.theme.colors.text};
     font-weight: 700;
+    white-space: nowrap;
+    min-width: 49px;
+  }
+
+  @media screen and (max-width: 1169px) {
+  }
+
+  @media screen and (max-width: 680px) {
+    width: 100%;
+    display: flex;
+    padding: 0 50px;
+    gap: 20px;
+    font-size: 14px;
+
+    span:nth-child(1) {
+      width: 130px;
+    }
   }
 `;
 
 export const SummaryButton = styled.button`
+  justify-self: end;
   width: 215px;
   height: 48px;
   display: flex;
@@ -66,5 +104,23 @@ export const SummaryButton = styled.button`
     margin-top: 20px;
     align-self: center;
     width: 240px;
+  }
+`;
+
+export const SummaryTitle = styled.div`
+  margin-bottom: 10px;
+  display: none;
+  color: ${(props) => props.theme.colors.text};
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: "Raleway";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130.5%;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 680px) {
+    display: block;
+    text-align: center;
   }
 `;

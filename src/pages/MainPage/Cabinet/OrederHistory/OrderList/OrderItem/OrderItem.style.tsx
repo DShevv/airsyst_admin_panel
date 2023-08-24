@@ -5,6 +5,13 @@ export const StyledItem = styled.div`
   display: grid;
   grid-template-columns: 1fr 3.5fr 15fr 4.5fr 4.5fr 4.5fr 1fr;
   align-items: center;
+
+  @media screen and (max-width: 680px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
 `;
 
 export const OrderImage = styled.img`
@@ -14,6 +21,10 @@ export const OrderImage = styled.img`
 
   width: 100%;
   height: 44px;
+
+  @media screen and (max-width: 680px) {
+    width: 72px;
+  }
 `;
 
 export const OrderTitle = styled.div`
@@ -25,6 +36,15 @@ export const OrderTitle = styled.div`
   font-weight: 700;
   line-height: 130.5%;
   text-transform: uppercase;
+
+  @media screen and (max-width: 1170px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 680px) {
+    flex: 1 0 60%;
+    font-size: 12px;
+  }
 `;
 
 export const OrderOldPrice = styled.div`
@@ -41,6 +61,7 @@ export const OrderOldPrice = styled.div`
 
 export const OrderPrice = styled.div`
   display: flex;
+  text-align: center;
   justify-content: center;
   color: ${(props) => props.theme.colors.secondary};
   font-variant-numeric: lining-nums proportional-nums;
@@ -64,4 +85,17 @@ export const DeleteButton = styled.button`
   background-repeat: no-repeat;
   transform: rotate(90deg);
   cursor: pointer;
+
+  @media screen and (max-width: 680px) {
+    display: none;
+  }
+`;
+
+export const Break = styled.div`
+  display: none;
+  @media screen and (max-width: 680px) {
+    display: block;
+    flex-basis: 100%;
+    width: 0;
+  }
 `;

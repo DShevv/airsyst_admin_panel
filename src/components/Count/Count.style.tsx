@@ -4,6 +4,10 @@ export const CountContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 680px) {
+    width: 120px;
+  }
 `;
 
 export const CountField = styled.input`
