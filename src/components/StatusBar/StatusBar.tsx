@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { StyledBar } from "./StatusBar.styles";
 import StatusPanel from "./StatusPanel/StatusPanel";
-import { statusGold, statusSilver } from "../../testData/status";
+import { statusGold } from "../../testData/status";
 
 const StatusBar = observer(() => {
   const { next, current } = statusGold;

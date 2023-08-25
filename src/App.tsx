@@ -21,6 +21,7 @@ import Price from "./pages/MainPage/Cabinet/Price/Price";
 import Documentation from "./pages/MainPage/Cabinet/Documentation/Documentation";
 import DocFilesPage from "./pages/MainPage/Cabinet/Documentation/DocFilesPage/DocFilesPage";
 import { OrderHistory } from "./pages/MainPage/Cabinet/OrederHistory/OrderHistory";
+import Booking from "./pages/MainPage/Cabinet/Booking/Booking";
 
 const userStore = new UserStore();
 userStore.setUser({ data: {} as UserData } as User);
@@ -65,7 +66,10 @@ const router = createBrowserRouter(
                 }
               />
             </Route>
-            <Route path="brone" element={<>store</>} />
+            <Route path="booking">
+              <Route index element={<Booking />} />
+              <Route path="mybooking" element={<>my</>} />
+            </Route>
             <Route path="price" element={<Price />} />
             <Route path="my" element={<>my</>} />
             <Route path="account" element={<FormPage />} />
@@ -83,7 +87,7 @@ const router = createBrowserRouter(
 );
 
 const App = observer(() => {
-  const { current } = statusSilver;
+  const { current } = statusGold;
 
   return (
     <RootWrapper bgcolor={current?.backgroundColor}>

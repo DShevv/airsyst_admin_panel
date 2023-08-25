@@ -7,7 +7,7 @@ export default function Menu() {
       <MenuItem to="messages">Сообщения</MenuItem>
       <MenuItem to="store">Склад</MenuItem>
       <MenuItem to="documentation">Документация</MenuItem>
-      <MenuItem to="brone">Бронирование</MenuItem>
+      <MenuItem to="booking">Бронирование</MenuItem>
       <MenuItem to="price">Прайсы</MenuItem>
       <MenuItem to="my">Моё оборудование</MenuItem>
       <MenuItem to="account">Учётная запись</MenuItem>

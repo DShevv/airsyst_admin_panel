@@ -61,3 +61,19 @@ export interface IProduct {
   weight: number;
   isSelected: boolean;
 }
+
+export interface IBooking {
+  userID: string;
+  inn: string;
+  name: string;
+  address: string;
+  mark: string;
+  count: number;
+  date: string;
+  dealerName: string;
+  dealerManager: string;
+  manager: string;
+  phone: string;
+  commentary: string;
+  status: string;
+}
