@@ -22,6 +22,7 @@ import { OrderHistory } from "./pages/MainPage/Cabinet/OrederHistory/OrderHistor
 import { Booking } from "./pages/MainPage/Cabinet/Booking/Booking";
 import { MyBooking } from "./pages/MainPage/Cabinet/Booking/MyBooking/MyBooking";
 import userStore from "./stores/user-store";
+import { BookingCreate } from "./pages/MainPage/Cabinet/Booking/BookingCreate/BookingCreate";
 
 const App = observer(() => {
   const { current } = statusSilver;
@@ -73,6 +74,8 @@ const App = observer(() => {
               <Route path="booking">
                 <Route index element={<Booking />} />
                 <Route path="mybooking" element={<MyBooking />} />
+                <Route path="create" element={<BookingCreate />} />
+                <Route path="create/:id" element={<BookingCreate />} />
               </Route>
               <Route path="price" element={<Price />} />
               <Route path="my" element={<>my</>} />

@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.input`
+interface Props {
+  area?: string;
+}
+
+export const StyledInput = styled.input<Props>`
   max-width: 370px;
   width: 100%;
   height: 40px;
@@ -15,6 +19,7 @@ export const StyledInput = styled.input`
   font-weight: 400;
   line-height: 130.5%;
   outline-color: ${(props) => props.theme.colors.secondaryDark};
+  grid-area: ${(props) => (props.area ? props.area : "")};
 
   ::placeholder {
     color: ${(props) => props.theme.colors.textGrayLight};

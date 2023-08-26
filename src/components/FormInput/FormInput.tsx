@@ -11,7 +11,8 @@ interface Props {
   name?: string;
   minLength?: number;
   maxLength?: number;
-  onChange: (value: string | boolean) => void;
+  area?: string;
+  onChange: (value: string | boolean | number) => void;
 }
 
 export default function FormInput({
@@ -24,6 +25,7 @@ export default function FormInput({
   name,
   minLength,
   maxLength,
+  area,
   onChange,
 }: Props) {
   return (
@@ -36,6 +38,7 @@ export default function FormInput({
       name={name}
       minLength={minLength}
       maxLength={maxLength}
+      area={area}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         onChange(e.target.value);
       }}
