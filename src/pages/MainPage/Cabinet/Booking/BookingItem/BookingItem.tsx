@@ -1,7 +1,8 @@
 import { IBooking } from "../../../../../types/types";
 import { useState } from "react";
 import {
-  HeaderField,
+  CommentContainer,
+  Edit,
   InfoContainer,
   ItemHeader,
   ItemInfo,
@@ -12,9 +13,10 @@ import InfoField from "./InfoField/InfoField";
 
 interface Props {
   item: IBooking;
+  pathToEdit: string;
 }
 
-export default function BookingItem({ item }: Props) {
+export default function BookingItem({ item, pathToEdit }: Props) {
   const [isOpened, setIsOpened] = useState(false);
 
   const handleClick = () => {
@@ -31,7 +33,7 @@ export default function BookingItem({ item }: Props) {
         </TiteledField>
         <TiteledField title="Дата бронирования">{item.date}</TiteledField>
 
-        <button>sda</button>
+        <Edit to={`${pathToEdit}/${item.id}`}></Edit>
       </ItemHeader>
       <ItemInfo style={{ display: isOpened ? "flex" : "none" }}>
         <InfoContainer>
@@ -49,7 +51,9 @@ export default function BookingItem({ item }: Props) {
         </InfoContainer>
         <InfoField title="Статус">{item.status}</InfoField>
 
-        <HeaderField>{item.commentary}</HeaderField>
+        {item.commentary.length > 0 && (
+          <CommentContainer>{item.commentary}</CommentContainer>
+        )}
       </ItemInfo>
     </StyledBookingItem>
   );

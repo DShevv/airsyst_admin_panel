@@ -20,7 +20,7 @@ export const FieldTitle = styled.div`
 `;
 export const FieldValue = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
   color: ${(props) => props.theme.colors.textGrayDark};
   font-family: "Raleway";

@@ -25,7 +25,7 @@ export const StyledLink = styled(Link)`
 
   &:hover {
     background: #1245a9;
-    box-shadow: 0px 21px 30px 0px rgba(81, 81, 81, 0.4);
+    box-shadow: 0px 5px 30px 0px rgba(81, 81, 81, 0.4);
   }
 
   &:focus {

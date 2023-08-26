@@ -63,7 +63,8 @@ export interface IProduct {
 }
 
 export interface IBooking {
-  userID: string;
+  id: number;
+  userID: number;
   inn: string;
   name: string;
   address: string;
