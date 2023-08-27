@@ -8,6 +8,7 @@ export const RootWrapper = styled.div<Props>`
   width: 100%;
   height: 100%;
   background: ${(props) => props.bgcolor};
+  position: relative;
 `;
 
 export const Wrapper = styled.div<Props>`

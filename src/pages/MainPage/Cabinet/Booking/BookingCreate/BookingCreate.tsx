@@ -17,7 +17,7 @@ export const BookingCreate = observer(() => {
   const { user } = userStore;
   const { getBookingById, list } = bookingStore;
   const [copiedBooking, setCopiedBooking] = useState<IBooking | undefined>();
-  const [isInnValid, setIsInnValid] = useState(true);
+  const [isInnValid, setIsInnValid] = useState(false);
   const [formData, setFormData] = useState<IBooking>({
     id: list.length + 1,
     userID: user ? user.id : 0,

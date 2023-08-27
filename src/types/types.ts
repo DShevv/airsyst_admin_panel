@@ -84,3 +84,10 @@ export interface ValidationResult {
   result: boolean;
   badFields: string[];
 }
+
+export interface IModal {
+  isVisible: boolean;
+  text: string;
+  link: string;
+  buttonText: string;
+}

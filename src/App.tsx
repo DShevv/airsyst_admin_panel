@@ -8,12 +8,11 @@ import {
   Navigate,
 } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import MainPage from "./pages/MainPage/MainPage";
+import { MainPage } from "./pages/MainPage/MainPage";
 import FormPage from "./pages/FormPage/FormPage";
 import { RootWrapper, Wrapper } from "./App.styles";
 import Cabinet from "./pages/MainPage/Cabinet/Cabinet";
 import Messages from "./pages/MainPage/Cabinet/Messages/Messages";
-import { statusSilver } from "./testData/status";
 import Store from "./pages/MainPage/Cabinet/Store/Store";
 import Price from "./pages/MainPage/Cabinet/Price/Price";
 import Documentation from "./pages/MainPage/Cabinet/Documentation/Documentation";
@@ -25,8 +24,10 @@ import userStore from "./stores/user-store";
 import { BookingCreate } from "./pages/MainPage/Cabinet/Booking/BookingCreate/BookingCreate";
 import { useEffect } from "react";
 
+import statusStore from "./stores/status-store";
+
 const App = observer(() => {
-  const { current } = statusSilver;
+  const { current } = statusStore;
   const { user, setUser } = userStore;
 
   useEffect(() => {
