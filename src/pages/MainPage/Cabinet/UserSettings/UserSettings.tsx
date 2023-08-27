@@ -36,7 +36,7 @@ export default function UserSettings() {
         isAgent: user.data.isAgent,
         organization: user.data.companyName,
         uAddress: user.data.legalAddress,
-        isAddressEquals: true,
+        isAddressEquals: user.data.legalAddress === user.data.physicalAddress,
         fAddress: user.data.physicalAddress,
         INN: user.data.inn,
       });
