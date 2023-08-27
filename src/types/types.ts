@@ -78,3 +78,8 @@ export interface IBooking {
   commentary: string;
   status: string;
 }
+
+export interface ValidationResult {
+  result: boolean;
+  badFields: string[];
+}

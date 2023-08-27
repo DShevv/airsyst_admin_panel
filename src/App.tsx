@@ -13,7 +13,7 @@ import FormPage from "./pages/FormPage/FormPage";
 import { RootWrapper, Wrapper } from "./App.styles";
 import Cabinet from "./pages/MainPage/Cabinet/Cabinet";
 import Messages from "./pages/MainPage/Cabinet/Messages/Messages";
-import { statusGold, statusSilver } from "./testData/status";
+import { statusSilver } from "./testData/status";
 import Store from "./pages/MainPage/Cabinet/Store/Store";
 import Price from "./pages/MainPage/Cabinet/Price/Price";
 import Documentation from "./pages/MainPage/Cabinet/Documentation/Documentation";

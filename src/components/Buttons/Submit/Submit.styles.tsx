@@ -32,6 +32,18 @@ export const StyledSubmit = styled.input`
     box-shadow: none;
   }
 
+  &:disabled {
+    opacity: 0.7;
+  }
+
+  &:disabled:active,
+  &:disabled:focus,
+  &:disabled:hover {
+    box-shadow: none;
+    cursor: default;
+    background-color: ${(props) => props.theme.colors.secondary};
+  }
+
   @media screen and (max-width: 1169px) {
     width: 300px;
   }

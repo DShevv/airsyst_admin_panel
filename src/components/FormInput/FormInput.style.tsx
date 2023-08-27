@@ -34,6 +34,10 @@ export const StyledInput = styled.input<Props>`
     margin: 0;
   }
 
+  &.error {
+    border-color: red;
+  }
+
   @media screen and (max-width: 1169px) {
     max-width: 300px;
     min-width: 215px;

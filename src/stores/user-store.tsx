@@ -18,6 +18,9 @@ class UserStore {
 }
 
 const userStore = new UserStore();
-userStore.setUser({ id: 1, data: {} as UserData } as User);
+userStore.setUser({
+  id: 1,
+  data: {} as UserData,
+} as User);
 
 export default userStore;

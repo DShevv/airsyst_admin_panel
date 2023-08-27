@@ -4,22 +4,32 @@ import FormInput from "../../components/FormInput/FormInput";
 import Hint from "../../components/Hint/Hint";
 import InlineLink from "../../components/InlineLink/InlineLink";
 import { Cell, Form, Row, Title } from "./FormPage.style";
-import { DataForm } from "../../types/types";
+import { DataForm, ValidationResult } from "../../types/types";
 import Submit from "../../components/Buttons/Submit/Submit";
+import { isStartFormValid } from "../../utils/validation";
 
 export default function FormPage() {
   const [data, setData] = useState<DataForm>({} as DataForm);
+  const [isCorrect, setIsCorrect] = useState<ValidationResult>({
+    result: false,
+    badFields: [],
+  });
 
   useEffect(() => {
+    if (data.isAddressEquals) {
+      if (data.fAddress) {
+        data.fAddress = undefined;
+      }
+    }
     console.log(data);
   }, [data]);
 
   const useCreateOnChange = (field: string) => {
     return useCallback(
-      (value: string | boolean) => {
+      (value: string | boolean | number) => {
         setData({ ...data, [field]: value });
       },
-      [field]
+      [field, data]
     );
   };
 
@@ -27,7 +37,11 @@ export default function FormPage() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(data);
+    const validationRes = isStartFormValid(data);
+    setIsCorrect(validationRes);
+    if (validationRes.result) {
+      console.log("push to server");
+    }
   };
 
   return (
@@ -45,6 +59,9 @@ export default function FormPage() {
           name="firstName"
           required
           onChange={useCreateOnChange("name")}
+          className={
+            isCorrect.badFields.find((item) => item === "name") ? "error" : ""
+          }
         />
         <FormInput
           type="tel"
@@ -52,12 +69,18 @@ export default function FormPage() {
           name="phone"
           required
           onChange={useCreateOnChange("phone")}
+          className={
+            isCorrect.badFields.find((item) => item === "phone") ? "error" : ""
+          }
         />
         <FormInput
           type="email"
           placeholder="Email"
           required
           onChange={useCreateOnChange("email")}
+          className={
+            isCorrect.badFields.find((item) => item === "email") ? "error" : ""
+          }
         />
       </Row>
       <Checkbox id="agent" onChange={useCreateOnChange("isAgent")}>
@@ -74,6 +97,11 @@ export default function FormPage() {
           name="organization"
           required
           onChange={useCreateOnChange("organization")}
+          className={
+            isCorrect.badFields.find((item) => item === "organization")
+              ? "error"
+              : ""
+          }
         />
         <Cell>
           <FormInput
@@ -82,6 +110,11 @@ export default function FormPage() {
             name="address"
             required
             onChange={useCreateOnChange("uAddress")}
+            className={
+              isCorrect.badFields.find((item) => item === "uAddress")
+                ? "error"
+                : ""
+            }
           />
           <Checkbox
             id="isAddressEquals"
@@ -97,6 +130,11 @@ export default function FormPage() {
             name="address"
             required
             onChange={fAddressOnChange}
+            className={
+              isCorrect.badFields.find((item) => item === "fAddress")
+                ? "error"
+                : ""
+            }
           />
         ) : undefined}
       </Row>
@@ -106,9 +144,12 @@ export default function FormPage() {
           placeholder="ИНН*"
           name="INN"
           required
-          minLength={12}
-          maxLength={12}
+          minLength={8}
+          maxLength={8}
           onChange={useCreateOnChange("INN")}
+          className={
+            isCorrect.badFields.find((item) => item === "inn") ? "error" : ""
+          }
         />
       </Row>
 
