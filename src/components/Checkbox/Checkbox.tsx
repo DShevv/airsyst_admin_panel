@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import { StyledCheckbox } from "./Checkbox.style";
 
 interface Props {
@@ -20,18 +20,6 @@ export default function Checkbox({
   isChecked,
   onChange,
 }: Props | SecondProps) {
-  const [checked, setChecked] = useState(
-    isChecked !== undefined ? isChecked : false
-  );
-
-  const changeHandler = () => {
-    setChecked(!checked);
-  };
-
-  useEffect(() => {
-    onChange(checked);
-  }, [checked]);
-
   return (
     <StyledCheckbox>
       <input
@@ -39,7 +27,9 @@ export default function Checkbox({
         name={id}
         id={id}
         checked={isChecked}
-        onChange={changeHandler}
+        onChange={() => {
+          onChange(!isChecked);
+        }}
       />
       <label htmlFor={id}>{children}</label>
     </StyledCheckbox>
