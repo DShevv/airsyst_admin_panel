@@ -13,7 +13,8 @@ import Checkbox from "../../../../../components/Checkbox/Checkbox";
 import OrderItemsContainer from "./OrderItemsContainer/OrderItemsContainer";
 
 export const OrderList = observer(() => {
-  const { items, onSelectAllClick, isAllSelected } = productStore;
+  const { items, onSelectAllClick, isAllSelected, removeSelected } =
+    productStore;
 
   useEffect(() => {
     console.log(items);
@@ -33,7 +34,11 @@ export const OrderList = observer(() => {
             Выбрать все
           </Checkbox>
         </SelectAll>
-        <RemoveSelected>
+        <RemoveSelected
+          onClick={() => {
+            removeSelected();
+          }}
+        >
           <DeleteIcon />
           Удалить выбранное
         </RemoveSelected>

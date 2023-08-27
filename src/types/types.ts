@@ -60,6 +60,7 @@ export interface IProduct {
   oldPrice: number;
   weight: number;
   isSelected: boolean;
+  isAvailable: boolean;
 }
 
 export interface IBooking {

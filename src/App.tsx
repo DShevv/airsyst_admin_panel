@@ -23,10 +23,32 @@ import { Booking } from "./pages/MainPage/Cabinet/Booking/Booking";
 import { MyBooking } from "./pages/MainPage/Cabinet/Booking/MyBooking/MyBooking";
 import userStore from "./stores/user-store";
 import { BookingCreate } from "./pages/MainPage/Cabinet/Booking/BookingCreate/BookingCreate";
+import { useEffect } from "react";
 
 const App = observer(() => {
   const { current } = statusSilver;
-  const { user } = userStore;
+  const { user, setUser } = userStore;
+
+  useEffect(() => {
+    const storedValue = localStorage.getItem("user");
+    console.log(storedValue);
+
+    if (storedValue !== null) {
+      setUser({ ...JSON.parse(storedValue) });
+    } else {
+      setUser({
+        id: 1,
+        login: "admin",
+        email: "admin@gmail.com",
+        data: undefined,
+        token: "1",
+      });
+    }
+
+    return () => {
+      localStorage.setItem("user", JSON.stringify(user));
+    };
+  }, []);
 
   const router = createBrowserRouter(
     createRoutesFromElements(

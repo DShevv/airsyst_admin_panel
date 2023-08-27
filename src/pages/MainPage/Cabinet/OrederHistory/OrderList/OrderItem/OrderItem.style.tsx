@@ -37,6 +37,10 @@ export const OrderTitle = styled.div`
   line-height: 130.5%;
   text-transform: uppercase;
 
+  &.disabled {
+    color: ${(props) => props.theme.colors.textGrayLight};
+  }
+
   @media screen and (max-width: 1170px) {
     font-size: 15px;
   }

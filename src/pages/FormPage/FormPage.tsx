@@ -7,8 +7,10 @@ import { Cell, Form, Row, Title } from "./FormPage.style";
 import { DataForm, ValidationResult } from "../../types/types";
 import Submit from "../../components/Buttons/Submit/Submit";
 import { isStartFormValid } from "../../utils/validation";
+import userStore from "../../stores/user-store";
 
 export default function FormPage() {
+  const { setUserData } = userStore;
   const [data, setData] = useState<DataForm>({} as DataForm);
   const [isCorrect, setIsCorrect] = useState<ValidationResult>({
     result: false,
@@ -41,6 +43,15 @@ export default function FormPage() {
     setIsCorrect(validationRes);
     if (validationRes.result) {
       console.log("push to server");
+      setUserData({
+        name: data.name,
+        phone: data.phone,
+        companyName: data.organization,
+        legalAddress: data.uAddress,
+        physicalAddress: data.fAddress ? data.fAddress : data.uAddress,
+        inn: data.INN,
+        isAgent: data.isAgent,
+      });
     }
   };
 

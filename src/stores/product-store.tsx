@@ -82,6 +82,13 @@ class ProductStore {
   clearItems = (): void => {
     this.items = [];
   };
+
+  removeItem = (item: IProduct) => {
+    this.items = this.items.filter((product) => product.id !== item.id);
+  };
+  removeSelected = () => {
+    this.items = this.items.filter((product) => product.isSelected === false);
+  };
 }
 
 const productStore = new ProductStore();

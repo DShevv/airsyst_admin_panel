@@ -20,7 +20,7 @@ interface Props {
 }
 
 export const OrderItem = observer(({ item }: Props) => {
-  const { changeSelect, setCount } = productStore;
+  const { changeSelect, setCount, removeItem } = productStore;
 
   const createCheckboxOnChange = useCallback(() => {
     return (value: boolean | string) => {
@@ -42,17 +42,33 @@ export const OrderItem = observer(({ item }: Props) => {
         id={item.id}
         isChecked={item.isSelected}
       />
-      <OrderImage src={expired} />
-      <OrderTitle>{item.name}</OrderTitle>
+      <OrderImage src={item.image} />
+      <OrderTitle className={item.isAvailable ? "" : "disabled"}>
+        {item.name}
+      </OrderTitle>
       <Break />
-      <OrderOldPrice>{item.oldPrice} BYN</OrderOldPrice>
-      <Count
-        key={item.toString()}
-        count={item.count}
-        onChange={createCountOnChange()}
-      />
-      <OrderPrice>{item.price} BYN</OrderPrice>
-      <DeleteButton></DeleteButton>
+      {item.isAvailable ? (
+        <>
+          <OrderOldPrice>{item.oldPrice} BYN</OrderOldPrice>
+          <Count
+            key={item.toString()}
+            count={item.count}
+            onChange={createCountOnChange()}
+          />
+          <OrderPrice>{item.price} BYN</OrderPrice>
+        </>
+      ) : (
+        <>
+          <div></div>
+          <div></div>
+          <div></div>
+        </>
+      )}
+      <DeleteButton
+        onClick={() => {
+          removeItem(item);
+        }}
+      ></DeleteButton>
     </StyledItem>
   );
 });

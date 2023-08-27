@@ -1,10 +1,10 @@
 import { observer } from "mobx-react-lite";
 import { StyledBar } from "./StatusBar.styles";
 import StatusPanel from "./StatusPanel/StatusPanel";
-import { statusGold } from "../../testData/status";
+import { statusSilver } from "../../testData/status";
 
 const StatusBar = observer(() => {
-  const { next, current } = statusGold;
+  const { next, current } = statusSilver;
 
   if (
     !current?.percentage ||
