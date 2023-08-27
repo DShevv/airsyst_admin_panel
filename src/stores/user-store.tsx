@@ -16,9 +16,9 @@ class UserStore {
     this.user = undefined;
   };
 
-  setUserData = (data: UserData): void => {
+  setUserData = (data: UserData, email: string): void => {
     if (this.user) {
-      this.user = { ...this.user, data: data };
+      this.user = { ...this.user, data: data, email: email };
       localStorage.setItem("user", JSON.stringify(this.user));
     }
   };

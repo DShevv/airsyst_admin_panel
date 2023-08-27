@@ -23,6 +23,7 @@ import { MyBooking } from "./pages/MainPage/Cabinet/Booking/MyBooking/MyBooking"
 import userStore from "./stores/user-store";
 import { BookingCreate } from "./pages/MainPage/Cabinet/Booking/BookingCreate/BookingCreate";
 import { useEffect } from "react";
+import UserSettings from "./pages/MainPage/Cabinet/UserSettings/UserSettings";
 
 import statusStore from "./stores/status-store";
 
@@ -102,7 +103,7 @@ const App = observer(() => {
               </Route>
               <Route path="price" element={<Price />} />
               <Route path="my" element={<>my</>} />
-              <Route path="account" element={<FormPage />} />
+              <Route path="account" element={<UserSettings />} />
               <Route path="history" element={<OrderHistory />} />
             </Route>
           </Route>

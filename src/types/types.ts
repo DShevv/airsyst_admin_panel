@@ -40,7 +40,7 @@ export interface DataForm {
   organization: string;
   uAddress: string;
   isAddressEquals: boolean;
-  fAddress: string | undefined;
+  fAddress: string | null;
   INN: string;
 }
 

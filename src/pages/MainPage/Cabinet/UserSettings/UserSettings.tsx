@@ -1,26 +1,52 @@
 import { useCallback, useEffect, useState } from "react";
-import Checkbox from "../../components/Checkbox/Checkbox";
-import FormInput from "../../components/FormInput/FormInput";
-import Hint from "../../components/Hint/Hint";
-import InlineLink from "../../components/InlineLink/InlineLink";
-import { Cell, Form, Row, Title } from "./FormPage.style";
-import { DataForm, ValidationResult } from "../../types/types";
-import Submit from "../../components/Buttons/Submit/Submit";
-import { isStartFormValid } from "../../utils/validation";
-import userStore from "../../stores/user-store";
+import Checkbox from "../../../../components/Checkbox/Checkbox";
+import FormInput from "../../../../components/FormInput/FormInput";
+import Hint from "../../../../components/Hint/Hint";
+import InlineLink from "../../../../components/InlineLink/InlineLink";
+import { Cell, Form, Row, StyledFormInput, Title } from "./UserSettings.style";
+import { DataForm, ValidationResult } from "../../../../types/types";
+import Submit from "../../../../components/Buttons/Submit/Submit";
+import { isStartFormValid } from "../../../../utils/validation";
+import userStore from "../../../../stores/user-store";
 
-export default function FormPage() {
-  const { setUserData } = userStore;
-  const [data, setData] = useState<DataForm>({} as DataForm);
+export default function UserSettings() {
+  const { user, setUserData } = userStore;
+  const [data, setData] = useState<DataForm>({
+    name: "",
+    phone: "",
+    email: "",
+    isAgent: false,
+    organization: "",
+    uAddress: "",
+    isAddressEquals: false,
+    fAddress: "",
+    INN: "",
+  });
   const [isCorrect, setIsCorrect] = useState<ValidationResult>({
     result: false,
     badFields: [],
   });
 
   useEffect(() => {
+    if (user && user.data) {
+      setData({
+        name: user.data.name,
+        phone: user.data.phone,
+        email: user.email,
+        isAgent: user.data.isAgent,
+        organization: user.data.companyName,
+        uAddress: user.data.legalAddress,
+        isAddressEquals: true,
+        fAddress: user.data.physicalAddress,
+        INN: user.data.inn,
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     if (data.isAddressEquals) {
       if (data.fAddress) {
-        data.fAddress = undefined;
+        data.fAddress = null;
       }
     }
     console.log(data);
@@ -49,7 +75,8 @@ export default function FormPage() {
           phone: data.phone,
           companyName: data.organization,
           legalAddress: data.uAddress,
-          physicalAddress: data.fAddress ? data.fAddress : data.uAddress,
+          physicalAddress:
+            data.fAddress !== null ? data.fAddress : data.uAddress,
           inn: data.INN,
           isAgent: data.isAgent,
         },
@@ -76,6 +103,7 @@ export default function FormPage() {
           className={
             isCorrect.badFields.find((item) => item === "name") ? "error" : ""
           }
+          value={data.name}
         />
         <FormInput
           type="tel"
@@ -86,6 +114,7 @@ export default function FormPage() {
           className={
             isCorrect.badFields.find((item) => item === "phone") ? "error" : ""
           }
+          value={data.phone}
         />
         <FormInput
           type="email"
@@ -95,9 +124,14 @@ export default function FormPage() {
           className={
             isCorrect.badFields.find((item) => item === "email") ? "error" : ""
           }
+          value={data.email}
         />
       </Row>
-      <Checkbox id="agent" onChange={useCreateOnChange("isAgent")}>
+      <Checkbox
+        id="agent"
+        onChange={useCreateOnChange("isAgent")}
+        isChecked={data.isAgent}
+      >
         Я представитель юридического лица или ИП
       </Checkbox>
       <Hint>
@@ -105,7 +139,7 @@ export default function FormPage() {
         информацию.
       </Hint>
       <Row>
-        <FormInput
+        <StyledFormInput
           type="text"
           placeholder="Название организации*"
           name="organization"
@@ -116,9 +150,10 @@ export default function FormPage() {
               ? "error"
               : ""
           }
+          value={data.organization}
         />
         <Cell>
-          <FormInput
+          <StyledFormInput
             type="text"
             placeholder="Юридический адрес*"
             name="address"
@@ -129,16 +164,18 @@ export default function FormPage() {
                 ? "error"
                 : ""
             }
+            value={data.uAddress}
           />
           <Checkbox
             id="isAddressEquals"
             onChange={useCreateOnChange("isAddressEquals")}
+            isChecked={data.isAddressEquals}
           >
             Совпадает с физическим
           </Checkbox>
         </Cell>
         {!data.isAddressEquals ? (
-          <FormInput
+          <StyledFormInput
             type="text"
             placeholder="Физический адрес*"
             name="address"
@@ -149,11 +186,12 @@ export default function FormPage() {
                 ? "error"
                 : ""
             }
+            value={data.fAddress !== null ? data.fAddress : ""}
           />
         ) : undefined}
       </Row>
       <Row>
-        <FormInput
+        <StyledFormInput
           type="number"
           placeholder="ИНН*"
           name="INN"
@@ -164,10 +202,11 @@ export default function FormPage() {
           className={
             isCorrect.badFields.find((item) => item === "inn") ? "error" : ""
           }
+          value={data.INN}
         />
       </Row>
 
-      <Submit value="Продолжить" />
+      <Submit value="Изменить" />
     </Form>
   );
 }
