@@ -9,6 +9,7 @@ export const StyledCreateForm = styled.div`
 `;
 
 export const BookingForm = styled.form`
+  width: 100%;
   display: grid;
   grid-template-areas:
     "inn name address"
@@ -21,10 +22,51 @@ export const BookingForm = styled.form`
   grid-template-rows: 1fr;
   row-gap: 20px;
   column-gap: 30px;
+
+  @media screen and (max-width: 1169px) {
+    grid-template-areas:
+      "inn name name"
+      "address address address"
+      "mark mark count"
+      "dName dName dName"
+      "dManager dManager phone"
+      "manager manager manager"
+      "commentary commentary commentary"
+      "submit submit submit";
+  }
+
+  @media screen and (max-width: 680px) {
+  }
+`;
+
+export const BookingInput = styled(FormInput)`
+  @media screen and (max-width: 1169px) {
+    min-width: 190px;
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 14px;
+    padding: 5px 7px;
+    min-width: 120px;
+
+    &::placeholder {
+      font-size: 10px;
+    }
+  }
 `;
 
 export const FullWidthInput = styled(FormInput)`
   max-width: 100%;
+
+  @media screen and (max-width: 680px) {
+    font-size: 14px;
+    padding: 5px 7px;
+    min-width: 120px;
+
+    &::placeholder {
+      font-size: 10px;
+    }
+  }
 `;
 
 interface CommentaryProps {
@@ -50,6 +92,15 @@ export const CommentaryInput = styled.textarea<CommentaryProps>`
 
   ::placeholder {
     color: ${(props) => props.theme.colors.textGrayLight};
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 14px;
+    padding: 5px 7px;
+
+    &::placeholder {
+      font-size: 10px;
+    }
   }
 `;
 

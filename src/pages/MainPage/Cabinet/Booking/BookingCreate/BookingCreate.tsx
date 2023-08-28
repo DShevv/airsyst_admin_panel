@@ -1,13 +1,13 @@
 import { observer } from "mobx-react-lite";
-import FormInput from "../../../../../components/FormInput/FormInput";
 import {
   BookingForm,
+  BookingInput,
   BookingSubmit,
   CommentaryInput,
   FullWidthInput,
   StyledCreateForm,
 } from "./BookingCreate.style";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { FormEvent, useEffect, useState } from "react";
 import bookingStore from "../../../../../stores/booking-store";
 import { IBooking } from "../../../../../types/types";
@@ -16,7 +16,6 @@ import { isBookingValid } from "../../../../../utils/validation";
 import modalStore from "../../../../../stores/modal-store";
 
 export const BookingCreate = observer(() => {
-  const navigate = useNavigate();
   const { setInfo } = modalStore;
   const { id } = useParams();
   const { user } = userStore;
@@ -91,7 +90,7 @@ export const BookingCreate = observer(() => {
   return (
     <StyledCreateForm>
       <BookingForm onSubmit={submit}>
-        <FormInput
+        <BookingInput
           type="number"
           minLength={8}
           maxLength={8}
@@ -103,7 +102,7 @@ export const BookingCreate = observer(() => {
         />
         {isInnValid ? (
           <>
-            <FormInput
+            <FullWidthInput
               type="text"
               required
               placeholder="Конечный потребитель"
@@ -112,7 +111,7 @@ export const BookingCreate = observer(() => {
               onChange={crateChangeHandler("name")}
               value={formData.name}
             />
-            <FormInput
+            <FullWidthInput
               type="text"
               required
               placeholder="Регион, город потребителя"
@@ -134,7 +133,7 @@ export const BookingCreate = observer(() => {
           onChange={crateChangeHandler("mark")}
           value={formData.mark}
         />
-        <FormInput
+        <BookingInput
           type="number"
           required
           placeholder="Количество"
@@ -161,7 +160,7 @@ export const BookingCreate = observer(() => {
           onChange={crateChangeHandler("dealerManager")}
           value={formData.dealerManager}
         />
-        <FormInput
+        <BookingInput
           type="tel"
           required
           placeholder="Номер телефона"
