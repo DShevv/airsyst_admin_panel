@@ -2,17 +2,22 @@ import { observer } from "mobx-react-lite";
 import FormInput from "../../../../../components/FormInput/FormInput";
 import {
   BookingForm,
+  BookingSubmit,
   CommentaryInput,
   FullWidthInput,
   StyledCreateForm,
 } from "./BookingCreate.style";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FormEvent, useEffect, useState } from "react";
 import bookingStore from "../../../../../stores/booking-store";
 import { IBooking } from "../../../../../types/types";
 import userStore from "../../../../../stores/user-store";
+import { isBookingValid } from "../../../../../utils/validation";
+import modalStore from "../../../../../stores/modal-store";
 
 export const BookingCreate = observer(() => {
+  const navigate = useNavigate();
+  const { setInfo } = modalStore;
   const { id } = useParams();
   const { user } = userStore;
   const { getBookingById, list } = bookingStore;
@@ -55,6 +60,11 @@ export const BookingCreate = observer(() => {
   }, [copiedBooking]);
 
   useEffect(() => {
+    if (formData.inn.length === 8) {
+      setIsInnValid(true);
+    } else {
+      setIsInnValid(false);
+    }
     console.log(formData);
   }, [formData]);
 
@@ -64,9 +74,23 @@ export const BookingCreate = observer(() => {
     };
   };
 
+  const submit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const validationResult = isBookingValid(formData);
+    if (validationResult.result) {
+      console.log("request to server", formData);
+      setInfo({
+        text: "Заявка на бронирование принята в обработку",
+        link: "../booking",
+        buttonText: "Продолжить",
+        isVisible: true,
+      });
+    }
+  };
+
   return (
     <StyledCreateForm>
-      <BookingForm>
+      <BookingForm onSubmit={submit}>
         <FormInput
           type="number"
           minLength={8}
@@ -117,7 +141,7 @@ export const BookingCreate = observer(() => {
           name="count"
           area="count"
           onChange={crateChangeHandler("count")}
-          value={formData.toString()}
+          value={formData.count.toString()}
         />
         <FullWidthInput
           type="text"
@@ -138,12 +162,12 @@ export const BookingCreate = observer(() => {
           value={formData.dealerManager}
         />
         <FormInput
-          type="number"
+          type="tel"
           required
           placeholder="Номер телефона"
           name="phone"
           area="phone"
-          onChange={crateChangeHandler("phome")}
+          onChange={crateChangeHandler("phone")}
           value={formData.phone}
         />
         <FullWidthInput
@@ -163,6 +187,8 @@ export const BookingCreate = observer(() => {
             setFormData({ ...formData, commentary: e.currentTarget.value });
           }}
         ></CommentaryInput>
+
+        <BookingSubmit />
       </BookingForm>
     </StyledCreateForm>
   );

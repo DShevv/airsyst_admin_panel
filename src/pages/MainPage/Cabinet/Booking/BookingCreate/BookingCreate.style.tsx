@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import FormInput from "../../../../../components/FormInput/FormInput";
+import Submit from "../../../../../components/Buttons/Submit/Submit";
 
 export const StyledCreateForm = styled.div`
   padding: 20px 14px;
@@ -15,7 +16,8 @@ export const BookingForm = styled.form`
     "dName dName dName"
     "dManager dManager phone"
     "manager manager manager"
-    "commentary commentary commentary";
+    "commentary commentary commentary"
+    "submit submit submit";
   grid-template-rows: 1fr;
   row-gap: 20px;
   column-gap: 30px;
@@ -25,11 +27,11 @@ export const FullWidthInput = styled(FormInput)`
   max-width: 100%;
 `;
 
-interface ComentryProps {
+interface CommentaryProps {
   area?: string;
 }
 
-export const CommentaryInput = styled.textarea<ComentryProps>`
+export const CommentaryInput = styled.textarea<CommentaryProps>`
   width: 100%;
   height: 200px;
   grid-area: ${(props) => props.area};
@@ -49,4 +51,9 @@ export const CommentaryInput = styled.textarea<ComentryProps>`
   ::placeholder {
     color: ${(props) => props.theme.colors.textGrayLight};
   }
+`;
+
+export const BookingSubmit = styled(Submit)`
+  grid-area: submit;
+  justify-self: center;
 `;
