@@ -6,6 +6,8 @@ import {
   InfoContainer,
   ItemHeader,
   ItemInfo,
+  PhoneField,
+  RegionField,
   StyledBookingItem,
 } from "./BookingItem.style";
 import TiteledField from "../../../../../components/TiteledField/TiteledField";
@@ -28,21 +30,21 @@ export default function BookingItem({ item, pathToEdit }: Props) {
       <ItemHeader>
         <TiteledField title="ИНН">{item.inn}</TiteledField>
         <TiteledField title="Конечный потребитель">{item.name}</TiteledField>
-        <TiteledField title="Регион, Город потребителя">
+        <RegionField title="Регион, Город потребителя">
           {item.address}
-        </TiteledField>
+        </RegionField>
         <TiteledField title="Дата бронирования">{item.date}</TiteledField>
 
         <Edit to={`${pathToEdit}/${item.id}`}></Edit>
       </ItemHeader>
-      <ItemInfo style={{ display: isOpened ? "flex" : "none" }}>
+      <ItemInfo $isopened={isOpened}>
         <InfoContainer>
           <InfoField title="Марка оборудования">{item.mark}</InfoField>
           <InfoField title="Количество">{item.count}</InfoField>
         </InfoContainer>
         <InfoContainer>
           <InfoField title="Дилер">{item.dealerName}</InfoField>
-          <InfoField title="Контактные данные дилера">{item.phone}</InfoField>
+          <PhoneField title="Контактные данные дилера">{item.phone}</PhoneField>
         </InfoContainer>
         <InfoContainer>
           <InfoField title="Менеджер дилера">{item.dealerManager}</InfoField>

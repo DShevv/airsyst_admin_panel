@@ -4,6 +4,10 @@ export const StyledInfoField = styled.div`
   display: flex;
   height: 50px;
   gap: 5px;
+
+  @media screen and (max-width: 680px) {
+    height: max-content;
+  }
 `;
 
 export const FieldTitle = styled.div`
@@ -18,6 +22,14 @@ export const FieldTitle = styled.div`
   font-weight: 400;
   line-height: 130.5%;
   max-width: 90px;
+
+  @media screen and (max-width: 1169px) {
+    font-size: 10px;
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 12px;
+  }
 `;
 export const FieldValue = styled.div`
   display: flex;
@@ -30,4 +42,12 @@ export const FieldValue = styled.div`
   font-weight: 400;
   line-height: 130.5%;
   max-width: 180px;
+
+  @media screen and (max-width: 1169px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 18px;
+  }
 `;
