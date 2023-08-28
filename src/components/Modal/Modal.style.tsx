@@ -24,6 +24,7 @@ export const ModalWindow = styled.div`
   position: relative;
   width: 770px;
   height: 330px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +32,14 @@ export const ModalWindow = styled.div`
   gap: 25px;
   border-radius: ${(props) => props.theme.borderRadius};
   background-color: ${(props) => props.theme.colors.primary};
+
+  @media screen and (max-width: 1169px) {
+    width: 550px;
+  }
+
+  @media screen and (max-width: 680px) {
+    width: 340px;
+  }
 `;
 
 export const ModalCaption = styled.div`
@@ -56,4 +65,12 @@ export const ModalClose = styled(Link)`
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+
+  @media screen and (max-width: 1169px) {
+    width: 44px;
+    height: 44px;
+  }
+
+  @media screen and (max-width: 680px) {
+  }
 `;
