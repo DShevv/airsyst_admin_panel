@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import icon from "../../assets/sight.svg";
 
 export const StyledCheckbox = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ export const StyledCheckbox = styled.div`
     content: "";
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("/src/assets/sight.svg");
+    background-image: url(${icon});
     background-size: contain;
     z-index: 2;
   }
