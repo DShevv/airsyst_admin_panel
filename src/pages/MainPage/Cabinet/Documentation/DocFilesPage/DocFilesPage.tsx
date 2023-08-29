@@ -8,7 +8,7 @@ interface Props {
   itemsHref: string;
 }
 
-export default function DocFilesPage({ title, itemsHref }: Props) {
+export default function DocFilesPage({ title }: Props) {
   return (
     <div>
       <Path>

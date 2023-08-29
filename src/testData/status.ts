@@ -1,4 +1,4 @@
-import StatusStore from "../stores/status-store";
+/* import StatusStore from "../stores/status-store";
 
 export const statusSilver = new StatusStore();
 
@@ -40,3 +40,4 @@ statusGold.setNext({
   labelBackgroundColor: "#181816",
   backgroundColor: "#FFFFFF",
 });
+ */

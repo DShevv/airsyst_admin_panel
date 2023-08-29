@@ -20,7 +20,7 @@ export default function FormPage() {
   useEffect(() => {
     if (data.isAddressEquals) {
       if (data.fAddress) {
-        data.fAddress = undefined;
+        data.fAddress = null;
       }
     }
     console.log(data);

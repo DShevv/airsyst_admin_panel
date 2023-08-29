@@ -1,5 +1,4 @@
 import { CountButton, CountContainer, CountField } from "./Count.style";
-import { useState, useEffect } from "react";
 
 interface Props {
   count: number;

@@ -12,7 +12,6 @@ import {
   StyledItem,
 } from "./OrderItem.style";
 import { useCallback } from "react";
-import expired from "../../../../../../assets/noProduct.svg";
 import Count from "../../../../../../components/Count/Count";
 
 interface Props {

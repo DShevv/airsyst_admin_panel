@@ -8,12 +8,11 @@ import {
   ModalWindow,
 } from "./Modal.style";
 import { useEffect } from "react";
-import { MouseEvent } from "react";
 
 export const Modal = observer(() => {
   const { info, setInfo } = modalStore;
 
-  const closeHandler = (e: MouseEvent<HTMLAnchorElement>) => {
+  const closeHandler = () => {
     setInfo({ isVisible: false, text: "", link: "", buttonText: "" });
   };
 
