@@ -11,7 +11,17 @@ import userStore from "../../stores/user-store";
 
 export default function FormPage() {
   const { setUserData } = userStore;
-  const [data, setData] = useState<DataForm>({} as DataForm);
+  const [data, setData] = useState<DataForm>({
+    name: "",
+    phone: "",
+    email: "",
+    isAgent: false,
+    organization: "",
+    uAddress: "",
+    isAddressEquals: false,
+    fAddress: "",
+    INN: "",
+  } as DataForm);
   const [isCorrect, setIsCorrect] = useState<ValidationResult>({
     result: false,
     badFields: [],
@@ -132,6 +142,7 @@ export default function FormPage() {
           />
           <Checkbox
             id="isAddressEquals"
+            isChecked={data.isAddressEquals}
             onChange={useCreateOnChange("isAddressEquals")}
           >
             Совпадает с физическим
