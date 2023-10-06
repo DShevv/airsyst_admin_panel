@@ -107,7 +107,11 @@ export default function FormPage() {
           }
         />
       </Row>
-      <Checkbox id="agent" onChange={useCreateOnChange("isAgent")}>
+      <Checkbox
+        id="agent"
+        onChange={useCreateOnChange("isAgent")}
+        isChecked={data.isAgent}
+      >
         Я представитель юридического лица или ИП
       </Checkbox>
       <Hint>

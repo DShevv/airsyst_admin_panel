@@ -3,6 +3,22 @@ export interface Condition {
   point: number;
 }
 
+export interface AuthForm {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+}
+
+export interface RegisterForm {
+  email: string;
+  password: string;
+  repeatedPassword: string;
+}
+
+export interface ForgotForm {
+  email: string;
+}
+
 export interface Discount {
   name: string;
   percentage: number;
@@ -49,6 +65,7 @@ export interface IMessage {
   title: string;
   text: string;
   date: string;
+  url: string;
 }
 
 export interface IProduct {

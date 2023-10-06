@@ -59,7 +59,7 @@ export const Cell = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-
+  width: 100%;
   border-radius: ${(props) => props.theme.borderRadius};
   background-color: ${(props) => props.theme.colors.primary};
   padding: 18px;

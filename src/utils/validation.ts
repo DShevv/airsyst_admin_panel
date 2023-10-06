@@ -1,4 +1,58 @@
-import { DataForm, IBooking, ValidationResult } from "../types/types";
+import {
+  AuthForm,
+  DataForm,
+  ForgotForm,
+  IBooking,
+  RegisterForm,
+  ValidationResult,
+} from "../types/types";
+
+export function isLoginValid(data: AuthForm): ValidationResult {
+  const result: ValidationResult = {
+    result: true,
+    badFields: [],
+  };
+
+  if (data.email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/) === null) {
+    result.result = false;
+    result.badFields.push("email");
+  }
+
+  return result;
+}
+
+export function isForgotValid(data: ForgotForm): ValidationResult {
+  const result: ValidationResult = {
+    result: true,
+    badFields: [],
+  };
+
+  if (data.email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/) === null) {
+    result.result = false;
+    result.badFields.push("email");
+  }
+
+  return result;
+}
+
+export function isRegisterValid(data: RegisterForm): ValidationResult {
+  const result: ValidationResult = {
+    result: true,
+    badFields: [],
+  };
+
+  if (data.email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/) === null) {
+    result.result = false;
+    result.badFields.push("email");
+  }
+
+  if (data.password !== data.repeatedPassword) {
+    result.result = false;
+    result.badFields.push("repeatedPassword");
+  }
+
+  return result;
+}
 
 export function isStartFormValid(data: DataForm): ValidationResult {
   const result: ValidationResult = {

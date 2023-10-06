@@ -2,7 +2,8 @@ import { makeAutoObservable } from "mobx";
 import { User, UserData } from "../types/types";
 
 class UserStore {
-  user?: User = {} as User;
+  user?: User;
+  isAuthorized: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -10,6 +11,7 @@ class UserStore {
 
   setUser = (user: User): void => {
     this.user = { ...user };
+    localStorage.setItem("user", JSON.stringify(user));
   };
 
   removeUser = (): void => {
@@ -25,12 +27,5 @@ class UserStore {
 }
 
 const userStore = new UserStore();
-/* userStore.setUser({
-  id: 1,
-  login: "admin",
-  email: "admin@gmail.com",
-  data: undefined,
-  token: "1",
-}); */
 
 export default userStore;
